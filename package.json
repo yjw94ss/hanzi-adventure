@@ -1,0 +1,1 @@
+{"name":"hanzi-adventure","version":"1.0.0","private":true,"description":"1446字儿童认字挑战游戏","scripts":{"test":"node --test tests/*.cjs","start":"python3 -m http.server 8000"}}

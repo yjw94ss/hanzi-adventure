@@ -9,7 +9,7 @@ function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;',
 function toast(t){$('#toast').textContent=t;$('#toast').style.display='block';clearTimeout(toast.timer);toast.timer=setTimeout(()=>$('#toast').style.display='none',3500);}
 function save(){try{localStorage.setItem('hanzi-adventure-v1',JSON.stringify(state));saved=true;}catch{saved=false;if(!storageNotice){storageNotice=true;toast('浏览器暂不能保存进度，本次仍然可以玩。');}}}
 function stopAudio(){audioTicket++;if(currentAudio){currentAudio.pause();currentAudio=null;}}
-function sound(name){stopAudio();if(!state.settings.sound)return;const ticket=audioTicket;const src=window.EMBED_AUDIO?.[name]||'audio/'+name+'.mp3';currentAudio=new Audio(src);currentAudio.volume=.85;currentAudio.play().catch(()=>{if(ticket===audioTicket)toast('声音暂未播放，请再点一次听音按钮。');});}
+function sound(name){stopAudio();if(!state.settings.sound)return;const ticket=audioTicket;const src=window.EMBED_AUDIO?.[name]||'audio/'+name+'.mp3';currentAudio=new Audio(src);currentAudio.playbackRate=.8;currentAudio.preservesPitch=true;currentAudio.volume=.85;currentAudio.play().catch(()=>{if(ticket===audioTicket)toast('声音暂未播放，请再点一次听音按钮。');});}
 function speak(c){sound(WORDS[c].audio);}
 function shuffle(a){const v=[...a];for(let i=v.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[v[i],v[j]]=[v[j],v[i]];}return v;}
 function count(){return {met:all.filter(c=>(state.stats[c]?.seen>0||state.stats[c]?.miss>0)).length,known:all.filter(c=>state.stats[c]?.streak>=2).length,review:all.filter(c=>(state.stats[c]?.seen>0||state.stats[c]?.miss>0)&&(state.stats[c].miss>0||state.stats[c].streak<2)).length};}

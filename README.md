@@ -22,7 +22,7 @@
 
 ## 声音
 
-全部语音已预生成并随仓库提供，采用 Microsoft edge-tts 的 `zh-CN-XiaoyiNeural`，经 FFmpeg 标准化至目标 -17 LUFS、真峰上限 -2 dBTP。游戏运行不调用浏览器系统朗读，不需要语音 API 密钥。在线使用时按需加载语音；离线使用请完整下载 audio 目录。
+全部语音已预生成并随仓库提供，采用 Microsoft edge-tts 的 `zh-CN-XiaoyiNeural`，经 FFmpeg 标准化至目标 -17 LUFS、真峰上限 -2 dBTP。播放语速为原录音的 0.8 倍，保持原音调，让孩子更容易听清。游戏运行不调用浏览器系统朗读，不需要语音 API 密钥。在线使用时按需加载语音；离线使用请完整下载 audio 目录。
 
 ## 进度与隐私
 
